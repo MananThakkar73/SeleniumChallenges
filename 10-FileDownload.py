@@ -1,4 +1,5 @@
 import time
+from datetime import datetime
 
 from selenium import webdriver
 from selenium.webdriver import ActionChains
@@ -15,9 +16,14 @@ driver.get("https://demo.automationtesting.in/FileDownload.html")
 down_button = driver.find_element(By.XPATH,"//a[@class='btn btn-primary']")
 text_area = driver.find_element(By.ID,"textbox")
 
+text_area.screenshot("text_area.png")
+
 act = ActionChains(driver)
 act.move_to_element(text_area).perform()
 
 down_button.click()
 
 time.sleep(5)
+currtime = datetime.now()
+SStime = currtime.strftime("%H_%M_%S")
+driver.save_screenshot("ss"+SStime+".png")
