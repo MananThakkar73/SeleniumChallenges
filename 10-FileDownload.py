@@ -21,6 +21,3 @@ act.move_to_element(text_area).perform()
 down_button.click()
 
 time.sleep(5)
-
-
-print("123")
